@@ -1,0 +1,17 @@
+<?js if (obj && obj.description) { ?>
+<div class="param-desc">
+  <?js= description ?>
+</div>
+<?js } ?>
+
+<?js if (obj && obj.type && obj.type.names) {?>
+<dl class="param-type">
+  <dt>
+    Type:
+  </dt>
+  <dd>
+    <?js= this.partial('type.tmpl', obj.type.names) ?>
+  </dd>
+</dl>
+<?js } ?>
+

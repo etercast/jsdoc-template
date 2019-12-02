@@ -1,0 +1,7 @@
+<?js if (obj.augments && obj.augments.length) { ?>
+  <ul>
+  <?js obj.augments.forEach((a) => { ?>
+    <li><?js= this.linkto(a, a) ?></li>
+  <?js }) ?>
+  </ul>
+<?js } ?>

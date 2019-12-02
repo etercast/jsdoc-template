@@ -1,0 +1,111 @@
+<div class="section-method">
+<?js if (obj.kind !== 'module') { ?>
+  <?js if (obj.kind === 'class' && obj.classdesc) { ?>
+    <h2>Constructor</h2>
+  <?js } ?>
+
+  <h4 class="name" id="<?js= id ?>">
+    <?js= obj.attribs + (kind === 'class' ? 'new ' : '') + name + (obj.signature || '') ?>
+  </h4>
+
+  <?js if (obj.summary) { ?>
+  <p class="summary">
+    <?js= summary ?>
+  </p>
+  <?js } ?>
+<?js } ?>
+
+<?js if (obj.kind !== 'module' && obj.description) { ?>
+  <div class="description">
+    <?js= obj.description ?>
+  </div>
+<?js } ?>
+
+<?js= this.partial('details.tmpl', obj) ?>
+
+<?js if (obj.augments && obj.alias && obj.alias.indexOf('module:') === 0) { ?>
+  <h5 class="extends-title">Extends:</h5>
+  <?js= this.partial('augments.tmpl', obj) ?>
+<?js } ?>
+
+<?js= this.partial('types.tmpl', obj) ?>
+
+<?js if (obj['this']) { ?>
+    <h5 class="this-title">This:</h5>
+    <ul><li><?js= this.linkto(obj['this'], obj['this']) ?></li></ul>
+<?js } ?>
+
+<?js if (obj.params && params.length) { ?>
+    <h5 class="parameters-title">Parameters:</h5>
+    <?js= this.partial('params.tmpl', params) ?>
+<?js } ?>
+
+<?js if (obj.kind !== 'module' && obj.requires && obj.requires.length) { ?>
+<h5>Requires:</h5>
+<ul><?js obj.requires.forEach((r) => { ?>
+    <li><?js= this.linkto(r) ?></li>
+<?js }); ?></ul>
+<?js } ?>
+
+<?js if (obj.fires && fires.length) { ?>
+<h5>Fires:</h5>
+<ul><?js fires.forEach((f) => { ?>
+    <li><?js= this.linkto(f) ?></li>
+<?js }); ?></ul>
+<?js } ?>
+
+<?js if (obj.listens && listens.length) { ?>
+<h5>Listens to Events:</h5>
+<ul><?js listens.forEach((f) => { ?>
+    <li><?js= this.linkto(f) ?></li>
+<?js }); ?></ul>
+<?js } ?>
+
+<?js if (obj.listeners && listeners.length) { ?>
+<div class="section-event-listeners">
+<h5>Listeners of This Event:</h5>
+<ul><?js listeners.forEach((f) => { ?>
+    <li><?js= this.linkto(f) ?></li>
+<?js }); ?></ul>
+</div>
+<?js } ?>
+
+<?js if (obj.exceptions && exceptions.length) { ?>
+<div class="section-throws">
+<h5>Throws:</h5>
+<?js if (exceptions.length > 1) { ?><ul><?js
+    exceptions.forEach((r) => { ?>
+        <li><?js= this.partial('exceptions.tmpl', r) ?></li>
+    <?js });
+?></ul><?js } else {
+    exceptions.forEach((r) => { ?>
+        <?js= this.partial('exceptions.tmpl', r) ?>
+    <?js }); } ?>
+</div>
+<?js } ?>
+
+<?js if (obj.returns && returns.length) { ?>
+<div class="section-returns">
+<h5>Returns:</h5>
+  <?js if (returns.length > 1) { ?>
+  <ul>
+    <?js returns.forEach((r) => { ?>
+      <li><?js= this.partial('returns.tmpl', r) ?></li>
+    <?js });
+  ?>
+  </ul>
+  <?js } else {
+    returns.forEach((r) => { ?>
+        <?js= this.partial('returns.tmpl', r) ?>
+    <?js });
+  } ?>
+</div>
+<?js } ?>
+
+<?js if (obj.examples && examples.length) { ?>
+<div class="section-examples">
+  <h5>Example<?js= examples.length > 1? 's':'' ?></h5>
+  <?js= this.partial('examples.tmpl', examples) ?>
+</div>
+<?js } ?>
+</div>

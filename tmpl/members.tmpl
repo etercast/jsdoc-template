@@ -1,0 +1,37 @@
+<div class="section-members">
+  <h4 class="name" id="<?js= id ?>">
+    <?js= obj.attribs + name + (obj.signature ? obj.signature : '') ?>
+  </h4>
+
+<?js if (obj.summary) { ?>
+  <p class="summary">
+    <?js= summary ?>
+  </p>
+<?js } ?>
+
+<?js if (obj.description) { ?>
+  <div class="description">
+    <?js= obj.description ?>
+  </div>
+<?js } ?>
+
+<?js= this.partial('details.tmpl', obj) ?>
+
+<?js= this.partial('types.tmpl', obj) ?>
+
+<?js if (obj.fires && fires.length) { ?>
+  <h5 class="fires-title">Fires:</h5>
+  <ul>
+    <?js fires.forEach((f) => { ?>
+      <li><?js= this.linkto(f) ?></li>
+    <?js }); ?>
+  </ul>
+<?js } ?>
+
+<?js if (obj.examples && examples.length) { ?>
+  <h5 class="example-title">
+    Example<?js= examples.length > 1? 's':'' ?>
+  </h5>
+  <?js= this.partial('examples.tmpl', examples) ?>
+<?js } ?>
+</div>

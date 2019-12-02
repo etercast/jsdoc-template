@@ -1,0 +1,31 @@
+{
+  "name": "@etercast/jsdoc-template",
+  "version": "1.0.0",
+  "description": "Etercast JSDoc 3 Template",
+  "main": "publish.js",
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12.13.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/etercast/jsdoc-template.git"
+  },
+  "author": "ROJO 2 <hola@rojo2.com> (https://rojo2.com)",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/etercast/jsdoc-template/issues"
+  },
+  "homepage": "https://github.com/etercast/jsdoc-template",
+  "dependencies": {
+
+  }
+}

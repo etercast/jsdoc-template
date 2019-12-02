@@ -1,0 +1,8 @@
+<?js obj.forEach((name, i) => { ?>
+  <span class="param-type">
+    <code>
+      <?js= this.linkto(name, this.htmlsafe(name)) ?>
+    </code>
+  </span>
+  <?js if (i < obj.length-1) { ?>|<?js } ?>
+<?js }); ?>

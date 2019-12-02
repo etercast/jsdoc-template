@@ -1,0 +1,33 @@
+<?js if (obj.description && obj.type && obj.type.names) { ?>
+<dl>
+  <dt>
+    <div class="param-desc">
+    <?js= obj.description ?>
+    </div>
+  </dt>
+  <dd>
+
+  </dd>
+  <dt>
+    <dl>
+      <dt>
+        Type
+      </dt>
+      <dd>
+        <?js= this.partial('type.tmpl', obj.type.names) ?>
+      </dd>
+    </dl>
+  </dt>
+  <dd>
+
+  </dd>
+</dl>
+<?js } else { ?>
+  <div class="param-desc">
+  <?js if (obj.description) { ?>
+    <?js= obj.description ?>
+  <?js } else if (obj.type && obj.type.names) { ?>
+    <?js= this.partial('type.tmpl', obj.type.names) ?>
+  <?js } ?>
+  </div>
+<?js } ?>

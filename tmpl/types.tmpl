@@ -1,0 +1,16 @@
+<?js if (obj.type && obj.type.names) {?>
+<section class="types">
+  <h5 class="type-title">
+    <?js if (obj.type.names.length === 1) { ?>
+      Type:
+    <?js } else { ?>
+      Types:
+    <?js } ?>
+  </h5>
+  <ul class="type-list">
+    <li class="type-list-item">
+      <?js= this.partial('type.tmpl', obj.type.names) ?>
+    </li>
+  </ul>
+</section>
+<?js } ?>
